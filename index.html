@@ -13,177 +13,207 @@
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;800&family=Noto+Sans+SC:wght@400;500;900&display=swap" rel="stylesheet">
 <style>
 :root{--bg:#EDEAE6;--card:#FBFAF8;--glass:rgba(251,250,248,.62);--ink:#17151A;--sub:#3E3942;--muted:#77707C;--line:#E2DDD8;
---red:#C2361F;--redbg:#F6E3DD;--plum:#4E3557;--lilac:#8E6FA8;--plumbg:#E9E1EC;--green:#3F5A3A;--greenbg:#E4E9E2;color-scheme:light}
+--red:#C2361F;--redbg:#F6E3DD;--plum:#4E3557;--plumbg:#E9E1EC;--green:#3F5A3A;--greenbg:#E4E9E2;color-scheme:light}
 *{box-sizing:border-box;margin:0}
-body{background:var(--bg);color:var(--ink);font-family:"Noto Sans SC","PingFang SC","Microsoft YaHei",system-ui,sans-serif;padding:28px clamp(16px,4.5vw,64px) 48px;min-height:100vh;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+body{background:var(--bg);color:var(--ink);font-family:"Noto Sans SC","PingFang SC","Microsoft YaHei",system-ui,sans-serif;padding:26px clamp(16px,4.5vw,64px) 40px;min-height:100vh;overflow-x:hidden;-webkit-font-smoothing:antialiased}
 html[data-lang=zh] [data-l=en],html[data-lang=en] [data-l=zh]{display:none!important}
 a{color:inherit}
 /* 背景流光 */
 .aur{position:fixed;inset:-20vmax;z-index:0;pointer-events:none}
-.aur i{position:absolute;width:55vmax;height:55vmax;border-radius:50%;filter:blur(80px);opacity:.5}
+.aur i{position:absolute;width:55vmax;height:55vmax;border-radius:50%;filter:blur(80px);opacity:.45}
 .aur i:nth-child(1){background:#E8735A;left:5%;top:10%;animation:f1 22s ease-in-out infinite alternate}
 .aur i:nth-child(2){background:#9C7BC0;right:0;top:25%;animation:f2 26s ease-in-out infinite alternate}
-.aur i:nth-child(3){background:#F2C46B;left:35%;bottom:0;opacity:.38;animation:f3 30s ease-in-out infinite alternate}
-@keyframes f1{to{transform:translate(30vmax,20vmax) scale(1.2)}}
-@keyframes f2{to{transform:translate(-35vmax,15vmax) scale(.85)}}
-@keyframes f3{to{transform:translate(-20vmax,-30vmax) scale(1.15)}}
+.aur i:nth-child(3){background:#F2C46B;left:35%;bottom:0;opacity:.35;animation:f3 30s ease-in-out infinite alternate}
+@keyframes f1{to{transform:translate(30vmax,20vmax) scale(1.2)}}@keyframes f2{to{transform:translate(-35vmax,15vmax) scale(.85)}}@keyframes f3{to{transform:translate(-20vmax,-30vmax) scale(1.15)}}
 .top,.grid,footer{position:relative;z-index:1}
 .top{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:18px;font:600 14px "Manrope","PingFang SC",sans-serif}
 .lang{all:unset;display:flex;background:var(--card);border-radius:99px;padding:4px;cursor:pointer;font:600 14px "Manrope","PingFang SC",sans-serif}
 .lang span{padding:6px 14px;border-radius:99px;transition:background .25s,color .25s}
 html[data-lang=zh] .lang .zh,html[data-lang=en] .lang .en{background:var(--ink);color:var(--card)}
 .lang:focus-visible{outline:2px solid var(--red);outline-offset:2px}
-.grid{display:grid;grid-template-columns:1.15fr 1fr 1fr 1fr;gap:14px}
-.t{background:var(--glass);backdrop-filter:blur(22px) saturate(1.3);-webkit-backdrop-filter:blur(22px) saturate(1.3);border-radius:28px;padding:26px 28px;position:relative;overflow:hidden;min-width:0}
 .cap{font:600 12px "Manrope","PingFang SC",sans-serif;letter-spacing:.16em;color:var(--muted);text-transform:uppercase}
-.hero{grid-column:span 2}
-.hero h1{font:900 clamp(56px,7vw,92px)/1 "Noto Sans SC","PingFang SC",sans-serif;letter-spacing:-.02em;margin:16px 0 4px}
-.hero .en{font:800 clamp(26px,2.6vw,34px) "Manrope",sans-serif;color:var(--plum);letter-spacing:-.02em}
-.hero .tagline{font:500 clamp(18px,1.8vw,22px)/1.5 "Noto Sans SC","PingFang SC",sans-serif;margin-top:22px;text-wrap:balance}
-.hero .tagline em{font-style:normal;color:var(--red)}
-.hero .meta{font:400 14px/1.6 "Noto Sans SC","PingFang SC",sans-serif;color:var(--muted);margin-top:8px}
-.photo{grid-row:span 2;padding:0;min-height:420px;background:var(--card)}
-.photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 30%}
-.photo .chip{position:absolute;left:16px;bottom:16px;background:rgba(251,250,248,.9);border-radius:99px;padding:8px 14px;font:500 13px "Manrope","PingFang SC",sans-serif}
-.now{background:var(--ink);color:var(--card);display:flex;flex-direction:column;gap:14px}
+.chips{list-style:none;padding:0;display:flex;flex-wrap:wrap;gap:6px}
+.chips li{font:400 13px "Noto Sans SC","PingFang SC",sans-serif;color:var(--sub);border:1px solid var(--line);border-radius:99px;padding:4px 11px;background:rgba(251,250,248,.5)}
+.grid{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:14px}
+.t{background:var(--glass);backdrop-filter:blur(22px) saturate(1.3);-webkit-backdrop-filter:blur(22px) saturate(1.3);border-radius:30px;padding:28px 30px;position:relative;min-width:0}
+/* 首屏 */
+.hero{z-index:5;grid-column:span 8;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:10px;padding:34px 0 34px 36px;min-height:500px}
+.ht{display:flex;flex-direction:column;gap:16px;justify-content:center;z-index:2;min-width:0}
+.ht h1{font:900 clamp(60px,6.6vw,100px)/.95 "Noto Sans SC","PingFang SC",sans-serif;letter-spacing:-.03em}
+.ht .en{font:800 clamp(26px,2.4vw,34px) "Manrope",sans-serif;color:var(--plum);letter-spacing:-.02em;margin-top:-6px}
+.ht .tag{font:500 clamp(18px,1.6vw,21px)/1.5 "Noto Sans SC","PingFang SC",sans-serif;text-wrap:balance}
+.ht .tag em{font-style:normal;color:var(--red)}
+.ht .meta{font:400 14px/1.6 "Noto Sans SC","PingFang SC",sans-serif;color:var(--muted);margin-top:-8px}
+.visual{position:relative;overflow:hidden;border-radius:0 30px 30px 0;margin:-34px 0}
+.visual canvas{position:absolute;inset:0;width:100%;height:100%}
+.hub{position:absolute;left:50%;top:50%;width:clamp(150px,15vw,220px);aspect-ratio:1;transform:translate(-50%,-50%);border-radius:50%;overflow:hidden;box-shadow:0 0 0 7px rgba(251,250,248,.8),0 24px 50px rgba(60,30,60,.2)}
+.hub img{width:100%;height:100%;object-fit:cover;object-position:50% 28%}
+/* 联系按钮组 */
+.dock{display:flex;flex-wrap:wrap;gap:10px;position:relative}
+.dk{all:unset;box-sizing:border-box;cursor:pointer;display:inline-flex;align-items:center;gap:8px;height:44px;padding:0 18px 0 13px;border-radius:99px;font:600 14px "Manrope","Noto Sans SC","PingFang SC",sans-serif;transition:transform .2s,box-shadow .2s}
+.dk svg{width:20px;height:20px;fill:currentColor;flex:none}
+.dk.wx{background:#07C160;color:#fff}
+.dk.mail{background:#fff;color:var(--ink);box-shadow:inset 0 0 0 1px var(--line)}.dk.mail svg{fill:#EA4335}
+.dk.cv{background:var(--ink);color:#fff}.dk.cv svg{fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.dk.li{background:#0A66C2;color:#fff}
+.dk:hover,.dk[aria-expanded=true]{transform:translateY(-2px);box-shadow:0 10px 24px rgba(30,20,40,.16)}
+.dk:focus-visible{outline:2px solid var(--red);outline-offset:3px}
+.pop{position:absolute;top:calc(100% + 12px);left:0;z-index:30;background:var(--card);color:var(--ink);border-radius:22px;box-shadow:0 24px 60px rgba(30,20,40,.22);padding:18px;width:min(400px,calc(100vw - 32px));opacity:0;transform:translateY(-6px) scale(.98);transform-origin:top left;pointer-events:none;transition:opacity .2s,transform .2s}
+.pop.open{opacity:1;transform:none;pointer-events:auto}
+.pop .ph{font:600 12px "Manrope","PingFang SC",sans-serif;letter-spacing:.12em;color:var(--muted);text-transform:uppercase;margin-bottom:10px}
+.pop.p-wx{width:min(260px,calc(100vw - 32px));text-align:center}
+.pop.p-wx img{width:200px;height:200px;display:block;margin:0 auto 10px;border-radius:12px}
+.pop.p-wx p{font:400 13px/1.5 "Noto Sans SC","PingFang SC",sans-serif;color:var(--muted)}
+.pop .row{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:10px 0;border-top:1px solid var(--line)}
+.pop .row span{font:600 14px "Manrope",sans-serif;min-width:0;overflow-wrap:anywhere;user-select:all}
+.pop .acts{display:flex;gap:6px;flex:none}
+.pop .acts a,.pop .acts button{all:unset;cursor:pointer;font:500 12px "Noto Sans SC","PingFang SC",sans-serif;padding:6px 11px;border-radius:99px;box-shadow:inset 0 0 0 1px var(--line);white-space:nowrap}
+.pop .acts a{background:var(--ink);color:var(--card);box-shadow:none}
+.pop .acts button.ok{background:var(--greenbg);color:var(--green);box-shadow:none}
+/* 正在关注 */
+.now{grid-column:span 4;background:var(--ink);color:var(--card);display:flex;flex-direction:column;gap:14px;padding:30px}
 .now .cap{color:#A79FB0;display:flex;align-items:center;gap:8px}
-.now .dot{width:8px;height:8px;border-radius:50%;background:#5BE37D;animation:pulse 2s infinite}
+.now .cap::before{content:"";width:8px;height:8px;border-radius:50%;background:#5BE37D;animation:pulse 2s infinite}
 @keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(91,227,125,.6)}50%{box-shadow:0 0 0 7px rgba(91,227,125,0)}}
-.now h2{font:500 15px "Noto Sans SC","PingFang SC",sans-serif;color:#CFC8D6}
-.now ul{list-style:none;padding:0;display:flex;flex-wrap:wrap;gap:8px}
-.now li{font:600 15px "Manrope","PingFang SC",sans-serif;border:1px solid #4A4351;border-radius:99px;padding:6px 13px}
-.now p{font:400 14px/1.6 "Noto Sans SC","PingFang SC",sans-serif;color:#A79FB0;text-wrap:pretty}
-.now a{margin-top:auto;font:600 14px "Manrope","PingFang SC",sans-serif;text-decoration:none;border-bottom:1px solid #6B6372;align-self:flex-start;padding-bottom:2px}
-.area{display:flex;flex-direction:column;gap:12px}
-.area .lab{display:inline-flex;align-self:flex-start;font:500 13px "Noto Sans SC","PingFang SC",sans-serif;padding:5px 12px;border-radius:99px}
-.a .lab{background:var(--plumbg);color:var(--plum)}.b .lab{background:var(--redbg);color:var(--red)}.s .lab{background:var(--greenbg);color:var(--green)}
-.area h3{font:500 17px/1.55 "Noto Sans SC","PingFang SC",sans-serif;text-wrap:balance}
-.area ul{list-style:none;padding:0;display:flex;flex-wrap:wrap;gap:6px}
-.area li{font:400 13px "Noto Sans SC","PingFang SC",sans-serif;color:var(--sub);border:1px solid var(--line);border-radius:99px;padding:4px 10px;background:rgba(251,250,248,.5)}
-.area .where{margin-top:auto;padding-top:12px;border-top:1px dashed var(--line);font:500 13px/1.5 "Manrope","Noto Sans SC","PingFang SC",sans-serif;color:var(--sub)}
-.area .where .k{font:600 11px "Manrope","PingFang SC",sans-serif;letter-spacing:.14em;color:var(--muted);margin-right:10px;text-transform:uppercase}
-.net{grid-column:span 2;min-height:260px;padding:0}
-.net canvas{position:absolute;inset:0;width:100%;height:100%}
-.net .cap{position:absolute;left:28px;top:24px}
-.net .leg{position:absolute;left:28px;bottom:20px;display:flex;gap:16px;font:400 12px "Noto Sans SC","PingFang SC",sans-serif;color:var(--muted)}
-.net .leg i{display:inline-block;width:8px;height:8px;margin-right:6px}
-.contact{grid-column:span 2;display:flex;gap:24px;align-items:center}
-.contact img{width:132px;height:132px;border-radius:14px;flex:none;background:#fff}
-.contact .ci{min-width:0;display:flex;flex-direction:column;gap:8px}
-.contact .mail{font:500 16px "Manrope","PingFang SC",sans-serif;overflow-wrap:anywhere;user-select:all}
-.contact .lk{display:flex;flex-wrap:wrap;gap:10px;margin-top:6px}
-.contact .lk a{font:500 14px "Noto Sans SC","PingFang SC",sans-serif;text-decoration:none;border:1px solid var(--line);border-radius:99px;padding:7px 14px;transition:background .2s,color .2s;background:rgba(251,250,248,.5)}
-.contact .lk a:hover{background:var(--ink);color:var(--card)}
-.tl{grid-column:span 4}
-.tl ol{list-style:none;padding:0;margin-top:14px;display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
-.tl li{border-top:2px solid var(--ink);padding-top:10px;font:500 15px "Noto Sans SC","PingFang SC",sans-serif}
-.tl li em{display:block;font:600 12px "Manrope",sans-serif;font-style:normal;color:var(--muted);margin-bottom:4px;font-variant-numeric:tabular-nums}
-.tl li strong{display:block;font-weight:500}
-.tl li span{display:block;font:400 13px "Noto Sans SC","PingFang SC",sans-serif;color:var(--muted);margin-top:2px}
-.tl li .duty{color:var(--sub);line-height:1.6;margin-top:8px}
-footer{margin-top:22px;text-align:center;font:400 12px "Manrope","PingFang SC",sans-serif;color:var(--muted)}
-/* 滚动浮现 */
+.now h2{font:900 clamp(26px,2.4vw,34px)/1.2 "Noto Sans SC","Manrope","PingFang SC",sans-serif}
+.now p{font:400 14px/1.6 "Noto Sans SC","PingFang SC",sans-serif;color:#A79FB0}
+.now ul{list-style:none;padding:0;display:flex;flex-direction:column;margin-top:auto}
+.now li{display:flex;justify-content:space-between;align-items:center;gap:12px;font:600 17px "Manrope","Noto Sans SC","PingFang SC",sans-serif;padding:12px 0;border-top:1px solid #34303A}
+.now li i{font:400 12px "Manrope",sans-serif;font-style:normal;color:#8D8596}
+/* 经历时间线 */
+.tl{grid-column:span 12;padding:30px 36px 34px}
+.tl .head{display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap;margin-bottom:30px}
+.tl h2{font:900 clamp(22px,2.4vw,32px)/1.3 "Noto Sans SC","Manrope","PingFang SC",sans-serif;letter-spacing:-.01em;text-wrap:balance}
+.rail{position:relative;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:26px;padding-top:30px}
+.rail::before{content:"";position:absolute;left:0;right:0;top:7px;height:2px;background:linear-gradient(90deg,#B9A3D0,#8E6FA8 40%,#C2361F)}
+.stop{position:relative;min-width:0}
+.stop::before{content:"";position:absolute;top:-30px;left:0;width:12px;height:12px;border-radius:50%;background:var(--card);border:3px solid var(--plum)}
+.stop.cur::before{background:var(--red);border-color:var(--red);box-shadow:0 0 0 6px rgba(194,54,31,.15)}
+.stop em{display:block;font:600 12px "Manrope",sans-serif;font-style:normal;color:var(--muted);margin-bottom:6px;font-variant-numeric:tabular-nums}
+.stop strong{display:block;font:800 19px "Manrope","Noto Sans SC","PingFang SC",sans-serif}
+.stop .role{display:block;font:400 13px "Noto Sans SC","PingFang SC",sans-serif;color:var(--muted);margin-top:3px}
+.stop p{font:400 13.5px/1.7 "Noto Sans SC","PingFang SC",sans-serif;color:var(--sub);margin-top:10px}
+/* 三项能力 */
+.ab{grid-column:span 4;display:flex;flex-direction:column;gap:14px;overflow:hidden}
+.ab .num{position:absolute;right:22px;top:12px;font:800 76px/1 "Manrope",sans-serif;letter-spacing:-.05em;color:var(--c);opacity:.13}
+.ab .lab{display:inline-flex;align-self:flex-start;font:500 13px "Noto Sans SC","PingFang SC",sans-serif;padding:5px 12px;border-radius:99px;background:var(--cb);color:var(--c)}
+.ab h3{font:500 20px/1.45 "Noto Sans SC","PingFang SC",sans-serif;text-wrap:balance;max-width:15em}
+.where{font:500 13px "Manrope","Noto Sans SC","PingFang SC",sans-serif;color:var(--sub);margin-top:auto;padding-top:12px;border-top:1px dashed var(--line)}
+.where i{font:600 11px "Manrope","PingFang SC",sans-serif;font-style:normal;letter-spacing:.14em;color:var(--muted);margin-right:10px;text-transform:uppercase}
+footer{text-align:center;margin-top:22px;font:400 12px "Manrope","PingFang SC",sans-serif;color:var(--muted)}
 .js .rv{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.2,1)}
 .js .rv.in{opacity:1;transform:none}
-@media (max-width:1080px){.grid{grid-template-columns:1fr 1fr}.hero,.net,.tl,.contact{grid-column:span 2}.photo{grid-row:auto;min-height:320px}.tl ol{grid-template-columns:1fr 1fr}}
-@media (max-width:560px){.grid{grid-template-columns:1fr}.hero,.net,.tl,.contact{grid-column:auto}.contact{flex-direction:column;align-items:flex-start}.aur i{filter:blur(60px)}}
-@media (prefers-reduced-motion:reduce){.js .rv{opacity:1;transform:none;transition:none}.aur i,.now .dot{animation:none}}
+@media (max-width:1080px){.hero,.now,.tl,.ab{grid-column:span 12}.hero{min-height:0}}
+@media (max-width:700px){.hero{grid-template-columns:1fr;padding:28px 24px}.visual{order:-1;height:300px;margin:-28px -24px 0;border-radius:30px 30px 0 0}.rail{grid-template-columns:1fr 1fr;row-gap:36px}.rail::before{display:none}.stop::before{top:-20px}.tl{padding:26px 24px}.now{padding:26px 24px}.ab{padding:26px 24px}}
+@media (prefers-reduced-motion:reduce){.js .rv{opacity:1;transform:none;transition:none}.aur i,.now .cap::before{animation:none}}
 </style></head><body>
 <div class="aur" aria-hidden="true"><i></i><i></i><i></i></div>
 <header class="top"><span>Nicole Wang · 王聪聪</span><button class="lang" id="lang" aria-label="切换语言 / Switch language"><span class="zh">中文</span><span class="en">English</span></button></header>
 <main class="grid">
   <section class="t hero rv">
-    <div class="cap">Academic ecosystem × Business development</div>
-    <h1>王聪聪</h1>
-    <div class="en">Nicole Wang</div>
-    <p class="tagline"><span data-l="zh">在<em>学者</em>与<em>产业</em>之间做连接。</span><span data-l="en">I connect <em>researchers</em> with <em>industry</em>.</span></p>
-    <p class="meta"><span data-l="zh">学术生态 × 商务拓展 · 近十年 · 北京</span><span data-l="en">Academic ecosystem × B2B partnerships · ~10 years · Beijing</span></p>
+    <div class="ht">
+      <div class="cap">Academic ecosystem × Business development</div>
+      <h1>王聪聪</h1><div class="en">Nicole Wang</div>
+      <p class="tag"><span data-l="zh">在<em>学者</em>与<em>产业</em>之间做连接。</span><span data-l="en">I connect <em>researchers</em> with <em>industry</em>.</span></p>
+      <p class="meta"><span data-l="zh">学术生态 × 商务拓展 · 近十年 · 北京 · ENTJ</span><span data-l="en">Academic ecosystem × B2B partnerships · ~10 years · Beijing · ENTJ</span></p>
+      <div class="dock" id="dock"></div>
+    </div>
+    <div class="visual" aria-hidden="true"><canvas id="c"></canvas><div class="hub" id="hub"><img src="avatar.jpg" alt="" width="640" height="640"></div></div>
   </section>
-  <section class="t photo rv"><img src="avatar.jpg" alt="王聪聪 Nicole Wang" width="640" height="640"><div class="chip">Beijing · ENTJ</div></section>
   <section class="t now rv">
-    <div class="cap"><span class="dot"></span>Now</div>
+    <div class="cap">Now</div>
     <h2><span data-l="zh">正在关注</span><span data-l="en">Currently exploring</span></h2>
-    <ul data-l="zh"><li>大模型专家网络</li><li>AI4S</li><li>具身智能</li><li>AI4Edu</li></ul>
-    <ul data-l="en"><li>Expert networks for LLMs</li><li>AI for Science</li><li>Embodied AI</li><li>AI for Education</li></ul>
     <p><span data-l="zh">学者、机构与产业在这些领域的合作</span><span data-l="en">How researchers, institutions and industry work together in these fields</span></p>
-    <a href="https://nicolewang-njfmtlw.github.io/resume-cn/"><span data-l="zh">看完整简历 →</span><span data-l="en">Full résumé (Chinese) →</span></a>
-  </section>
-  <section class="t area a rv">
-    <span class="lab" data-l="zh">学术生态</span><span class="lab" data-l="en">Academic ecosystem</span>
-    <h3 data-l="zh">找到对的学者，组织成长期合作</h3><h3 data-l="en">Finding the right researchers and building lasting collaborations</h3>
-    <ul data-l="zh"><li>学者识别与分层</li><li>专家网络搭建</li><li>学术项目策划</li></ul>
-    <ul data-l="en"><li>Scholar profiling</li><li>Expert networks</li><li>Research programs</li></ul>
-    <div class="where"><span class="k" data-l="zh">经历</span><span class="k" data-l="en">Where</span>MDPI · Audax Lab</div>
-  </section>
-  <section class="t area b rv">
-    <span class="lab" data-l="zh">商务拓展</span><span class="lab" data-l="en">Business development</span>
-    <h3 data-l="zh">把机构客户从线索推进到签约</h3><h3 data-l="en">Taking institutional clients from first lead to signed deal</h3>
-    <ul data-l="zh"><li>ToB 客户拓展</li><li>方案与谈判</li><li>客户台账</li></ul>
-    <ul data-l="en"><li>B2B prospecting</li><li>Proposals and negotiation</li><li>Pipeline management</li></ul>
-    <div class="where"><span class="k" data-l="zh">经历</span><span class="k" data-l="en">Where</span>dbdata · Audax Lab · <span data-l="zh">方源</span><span data-l="en">Fangyuan</span></div>
-  </section>
-  <section class="t area s rv">
-    <span class="lab" data-l="zh">系统搭建</span><span class="lab" data-l="en">Systems</span>
-    <h3 data-l="zh">借助 AI 工具，自己搭运营系统</h3><h3 data-l="en">Building my own operating tools with AI</h3>
-    <ul data-l="zh"><li>学者企业自动匹配</li><li>运营看板</li><li>学者社区展示站</li></ul>
-    <ul data-l="en"><li>Auto-matching</li><li>Ops dashboards</li><li>Community site</li></ul>
-    <div class="where"><span class="k" data-l="zh">经历</span><span class="k" data-l="en">Where</span>Audax Lab</div>
-  </section>
-  <section class="t net rv" aria-hidden="true">
-    <canvas id="c"></canvas>
-    <div class="cap" data-l="zh">我在中间</div><div class="cap" data-l="en">In the middle</div>
-    <div class="leg"><span><i style="background:#8E6FA8;border-radius:50%"></i><span data-l="zh">学者</span><span data-l="en">Researchers</span></span><span><i style="background:#C2361F"></i><span data-l="zh">机构与企业</span><span data-l="en">Institutions</span></span></div>
-  </section>
-  <section class="t contact rv">
-    <img src="wechat-qr.png" alt="微信二维码 WeChat QR code" width="132" height="132">
-    <div class="ci"><span class="cap" data-l="zh">联系 · 扫码加微信</span><span class="cap" data-l="en">Contact · WeChat QR</span>
-      <span class="mail">0815nicolewang@gmail.com</span>
-      <span class="mail">Nicole_NJFMTL@163.com</span>
-      <nav class="lk"><a href="https://nicolewang-njfmtlw.github.io/resume-cn/"><span data-l="zh">完整简历 →</span><span data-l="en">Résumé (Chinese) →</span></a><a href="https://www.linkedin.com/in/nicole-wang-097863427">LinkedIn ↗</a></nav></div>
+    <ul>
+      <li><span data-l="zh">大模型专家网络</span><span data-l="en">Expert networks for LLMs</span><i data-l="zh">LLM</i></li>
+      <li><span data-l="zh">AI4S</span><span data-l="en">AI for Science</span><i data-l="zh">Science</i></li>
+      <li><span data-l="zh">具身智能</span><span data-l="en">Embodied AI</span><i data-l="zh">Robotics</i></li>
+      <li><span data-l="zh">AI4Edu</span><span data-l="en">AI for Education</span><i data-l="zh">Education</i></li>
+    </ul>
   </section>
   <section class="t tl rv">
-    <div class="cap">Timeline</div>
-    <ol>
-      <li><em>2026 —</em><strong>Audax Lab</strong><span data-l="zh">学术生态负责人</span><span data-l="en">Head of Academic Ecosystem</span><span class="duty" data-l="zh">搭建学者池与企业需求池，撮合学者与企业合作</span><span class="duty" data-l="en">Built the researcher pool and the company demand pool; matched researchers with companies</span></li>
-      <li><em>2025</em><strong data-l="zh">东壁科技数据</strong><strong data-l="en">dbdata</strong><span data-l="zh">市场部商务经理</span><span data-l="en">Business Development Manager</span><span class="duty" data-l="zh">拓展高校与科研机构客户，方案撰写与商务谈判</span><span class="duty" data-l="en">Developed university and research-institution clients; wrote proposals and led negotiations</span></li>
-      <li><em>2019 — 2024</em><strong>MDPI</strong><span>Editor &amp; Team Leader</span><span class="duty" data-l="zh">全球学者合作与期刊运营，带团队</span><span class="duty" data-l="en">Global researcher collaboration and journal operations; team leadership</span></li>
-      <li><em>2015 — 2019</em><strong data-l="zh">方源房地产咨询</strong><strong data-l="en">Fangyuan Real Estate Consulting</strong><span data-l="zh">交易顾问</span><span data-l="en">Transaction Consultant</span><span class="duty" data-l="zh">交易全流程运营，经纪人培训、银行对接与公证业务</span><span class="duty" data-l="en">End-to-end transaction operations; broker training, bank partnerships and notarization support</span></li>
-    </ol>
+    <div class="head"><h2><span data-l="zh">从交易运营，到学术出版，再到 AI4S</span><span data-l="en">From transaction operations to academic publishing to AI for Science</span></h2><span class="cap">Experience</span></div>
+    <div class="rail">
+      <div class="stop"><em>2015 — 2019</em><strong data-l="zh">方源房地产咨询</strong><strong data-l="en">Fangyuan Real Estate Consulting</strong><span class="role" data-l="zh">交易顾问</span><span class="role" data-l="en">Transaction Consultant</span><p data-l="zh">交易全流程运营，经纪人培训、银行对接与公证业务</p><p data-l="en">End-to-end transaction operations; broker training, bank partnerships and notarization</p></div>
+      <div class="stop"><em>2019 — 2024</em><strong>MDPI</strong><span class="role">Editor &amp; Team Leader</span><p data-l="zh">全球学者合作与期刊运营，带团队</p><p data-l="en">Global researcher collaboration and journal operations; team leadership</p></div>
+      <div class="stop"><em>2025</em><strong data-l="zh">东壁科技数据</strong><strong data-l="en">dbdata</strong><span class="role" data-l="zh">市场部商务经理</span><span class="role" data-l="en">Business Development Manager</span><p data-l="zh">拓展高校与科研机构客户，方案撰写与商务谈判</p><p data-l="en">Developed university and research-institution clients; proposals and negotiation</p></div>
+      <div class="stop cur"><em><span data-l="zh">2026 — 现在</span><span data-l="en">2026 — now</span></em><strong>Audax Lab</strong><span class="role" data-l="zh">学术生态负责人</span><span class="role" data-l="en">Head of Academic Ecosystem</span><p data-l="zh">搭建学者池与企业需求池，撮合学者与企业合作</p><p data-l="en">Built the researcher pool and the company demand pool; matched researchers with companies</p></div>
+    </div>
   </section>
+  <section class="t ab rv" style="--c:var(--plum);--cb:var(--plumbg)"><div class="num" aria-hidden="true">01</div>
+    <span class="lab" data-l="zh">学术生态</span><span class="lab" data-l="en">Academic ecosystem</span>
+    <h3 data-l="zh">找到对的学者，组织成长期合作</h3><h3 data-l="en">Finding the right researchers and building lasting collaborations</h3>
+    <ul class="chips" data-l="zh"><li>学者识别与分层</li><li>专家网络搭建</li><li>学术项目策划</li></ul>
+    <ul class="chips" data-l="en"><li>Scholar profiling</li><li>Expert networks</li><li>Research programs</li></ul>
+    <div class="where"><i data-l="zh">经历</i><i data-l="en">Where</i>MDPI · Audax Lab</div></section>
+  <section class="t ab rv" style="--c:var(--red);--cb:var(--redbg)"><div class="num" aria-hidden="true">02</div>
+    <span class="lab" data-l="zh">商务拓展</span><span class="lab" data-l="en">Business development</span>
+    <h3 data-l="zh">把机构客户从线索推进到签约</h3><h3 data-l="en">Taking institutional clients from first lead to signed deal</h3>
+    <ul class="chips" data-l="zh"><li>ToB 客户拓展</li><li>方案与谈判</li><li>客户台账</li></ul>
+    <ul class="chips" data-l="en"><li>B2B prospecting</li><li>Proposals and negotiation</li><li>Pipeline management</li></ul>
+    <div class="where"><i data-l="zh">经历</i><i data-l="en">Where</i>dbdata · Audax Lab · <span data-l="zh">方源</span><span data-l="en">Fangyuan</span></div></section>
+  <section class="t ab rv" style="--c:var(--green);--cb:var(--greenbg)"><div class="num" aria-hidden="true">03</div>
+    <span class="lab" data-l="zh">系统搭建</span><span class="lab" data-l="en">Systems</span>
+    <h3 data-l="zh">借助 AI 工具，自己搭运营系统</h3><h3 data-l="en">Building my own operating tools with AI</h3>
+    <ul class="chips" data-l="zh"><li>学者企业自动匹配</li><li>运营看板</li><li>学者社区展示站</li></ul>
+    <ul class="chips" data-l="en"><li>Auto-matching</li><li>Ops dashboards</li><li>Community site</li></ul>
+    <div class="where"><i data-l="zh">经历</i><i data-l="en">Where</i>Audax Lab</div></section>
 </main>
 <footer>© 2026 Nicole Wang · 王聪聪</footer>
 <script>
 const H=document.documentElement;H.classList.add('js');
 const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
-// 语言：网址带 #en 用英文；否则用上次选择；再否则看浏览器语言
+// 语言：网址带 #en/#zh 优先；否则用上次选择；再否则看浏览器语言
 function setLang(l){H.dataset.lang=l;H.lang=l==='zh'?'zh-CN':'en';try{localStorage.setItem('nw-lang',l)}catch(e){}}
 (()=>{let l=null;if(/^#en\b/i.test(location.hash))l='en';else if(/^#zh\b/i.test(location.hash))l='zh';
  if(!l){try{l=localStorage.getItem('nw-lang')}catch(e){}}
  if(!l)l=/^zh/i.test(navigator.language||'')?'zh':'en';setLang(l)})();
 document.getElementById('lang').onclick=()=>setLang(H.dataset.lang==='zh'?'en':'zh');
-// 滚动浮现 + 数字跳动
-const io=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;const el=e.target;setTimeout(()=>el.classList.add('in'),(+el.dataset.i||0)*70);
- el.querySelectorAll('.cnt').forEach(n=>{if(n.dataset.done||reduce)return;n.dataset.done=1;const to=+n.dataset.to,pre=n.dataset.pre||'',suf=n.dataset.suf||'',t0=performance.now();
-  const step=t=>{const p=Math.min(1,(t-t0)/1400),v=Math.round(to*(1-Math.pow(1-p,3)));n.textContent=pre+v.toLocaleString('en-US')+suf;if(p<1)requestAnimationFrame(step)};requestAnimationFrame(step)});
- io.unobserve(el)}),{threshold:.12});
+const T=(zh,en)=>`<span data-l="zh">${zh}</span><span data-l="en">${en}</span>`,isZh=()=>H.dataset.lang==='zh';
+// 联系按钮：微信弹二维码；邮箱弹出可复制/发邮件；简历；领英
+const ICON={wechat:"M8.691 2.188C3.891 2.188 0 5.476 0 9.53c0 2.212 1.17 4.203 3.002 5.55a.59.59 0 0 1 .213.665l-.39 1.48c-.019.07-.048.141-.048.213 0 .163.13.295.29.295a.326.326 0 0 0 .167-.054l1.903-1.114a.864.864 0 0 1 .717-.098 10.16 10.16 0 0 0 2.837.403c.276 0 .543-.027.811-.05-.857-2.578.157-4.972 1.932-6.446 1.703-1.415 3.882-1.98 5.853-1.838-.576-3.583-4.196-6.348-8.596-6.348zM5.785 5.991c.642 0 1.162.529 1.162 1.18a1.17 1.17 0 0 1-1.162 1.178A1.17 1.17 0 0 1 4.623 7.17c0-.651.52-1.18 1.162-1.18zm5.813 0c.642 0 1.162.529 1.162 1.18a1.17 1.17 0 0 1-1.162 1.178 1.17 1.17 0 0 1-1.162-1.178c0-.651.52-1.18 1.162-1.18zm5.34 2.867c-1.797-.052-3.746.512-5.28 1.786-1.72 1.428-2.687 3.72-1.78 6.22.942 2.453 3.666 4.229 6.884 4.229.826 0 1.622-.12 2.361-.336a.722.722 0 0 1 .598.082l1.584.926a.272.272 0 0 0 .14.047c.134 0 .24-.111.24-.247 0-.06-.023-.12-.038-.177l-.327-1.233a.582.582 0 0 1-.023-.156.49.49 0 0 1 .201-.398C23.024 18.48 24 16.82 24 14.98c0-3.21-2.931-5.837-6.656-6.088V8.89c-.135-.01-.27-.027-.407-.03zm-2.53 3.274c.535 0 .969.44.969.982a.976.976 0 0 1-.969.983.976.976 0 0 1-.969-.983c0-.542.434-.982.97-.982zm4.844 0c.535 0 .969.44.969.982a.976.976 0 0 1-.969.983.976.976 0 0 1-.969-.983c0-.542.434-.982.969-.982z",gmail:"M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64 12 9.548l6.545-4.91 1.528-1.145C21.69 2.28 24 3.434 24 5.457z",linkedin:"M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z",doc:"M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z M14 3v5h5 M9 13h6 M9 17h6"};
+const svg=n=>`<svg viewBox="0 0 24 24" aria-hidden="true"><path d="${ICON[n]}"/></svg>`;
+const MAILS=["0815nicolewang@gmail.com","Nicole_NJFMTL@163.com"];
+document.getElementById('dock').innerHTML=`
+<button class="dk wx" data-pop="wx" aria-expanded="false">${svg('wechat')}${T('微信','WeChat')}</button>
+<button class="dk mail" data-pop="mail" aria-expanded="false">${svg('gmail')}${T('邮箱','Email')}</button>
+<a class="dk cv" href="https://nicolewang-njfmtlw.github.io/resume-cn/">${svg('doc')}${T('简历','Résumé (CN)')}</a>
+<a class="dk li" href="https://www.linkedin.com/in/nicole-wang-097863427">${svg('linkedin')}LinkedIn</a>
+<div class="pop p-wx" data-p="wx"><div class="ph">${T('微信扫一扫','Scan with WeChat')}</div><img src="wechat-qr.png" alt="WeChat QR" width="200" height="200"><p>${T('在手机微信里打开本页，可长按识别','On a phone, open this page in WeChat and long-press the code')}</p></div>
+<div class="pop p-mail" data-p="mail"><div class="ph">${T('邮箱','Email')}</div>${MAILS.map(m=>`<div class="row"><span>${m}</span><div class="acts"><button data-copy="${m}">${T('复制','Copy')}</button><a href="mailto:${m}">${T('发邮件','Send')}</a></div></div>`).join('')}</div>`;
+function closeAll(ex){document.querySelectorAll('.pop.open').forEach(p=>{if(p!==ex){p.classList.remove('open');const b=document.querySelector(`[data-pop="${p.dataset.p}"]`);b&&b.setAttribute('aria-expanded','false')}})}
+function sel(c){const s=c.closest('.row').querySelector('span'),r=document.createRange();r.selectNodeContents(s);getSelection().removeAllRanges();getSelection().addRange(r);c.innerHTML=T('已选中，请手动复制','Selected, copy manually')}
+document.addEventListener('click',e=>{const b=e.target.closest('[data-pop]');
+ if(b){const p=document.querySelector(`.pop[data-p="${b.dataset.pop}"]`);closeAll(p);const o=p.classList.toggle('open');b.setAttribute('aria-expanded',o);return}
+ const c=e.target.closest('[data-copy]');
+ if(c){const v=c.dataset.copy,done=()=>{c.innerHTML=T('已复制 ✓','Copied ✓');c.classList.add('ok');setTimeout(()=>{c.innerHTML=T('复制','Copy');c.classList.remove('ok')},1600)};
+  const fb=()=>{const ta=document.createElement('textarea');ta.value=v;ta.style.cssText='position:fixed;opacity:0';document.body.appendChild(ta);ta.select();let ok=false;try{ok=document.execCommand('copy')}catch(_){}ta.remove();ok?done():sel(c)};
+  if(navigator.clipboard)navigator.clipboard.writeText(v).then(done,fb);else fb();return}
+ if(!e.target.closest('.pop'))closeAll()});
+addEventListener('keydown',e=>{if(e.key==='Escape')closeAll()});
+// 滚动浮现
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){setTimeout(()=>e.target.classList.add('in'),(+e.target.dataset.i||0)*80);io.unobserve(e.target)}}),{threshold:.1});
 document.querySelectorAll('.rv').forEach((el,i)=>{el.dataset.i=i%4;io.observe(el)});
-// 连接图：左边学者，右边机构与企业，中间是我
-const c=document.getElementById('c'),x=c.getContext('2d');let W,Hh,dpr,L=[],R=[],P=[],vis=true;
-function rs(){dpr=Math.min(devicePixelRatio||1,2);const r=c.getBoundingClientRect();W=c.width=r.width*dpr;Hh=c.height=r.height*dpr;
- let s=11;const rnd=()=>{s=(s*9301+49297)%233280;return s/233280};L=[];R=[];
- for(let i=0;i<26;i++)L.push({x:.06+rnd()*.3,y:.18+rnd()*.64,p:rnd()*6.28});for(let i=0;i<14;i++)R.push({x:.64+rnd()*.3,y:.18+rnd()*.64,p:rnd()*6.28})}
-rs();addEventListener('resize',rs);
-new IntersectionObserver(es=>{vis=es[0].isIntersecting;if(vis&&!reduce)requestAnimationFrame(draw)}).observe(c);
-function draw(t){x.clearRect(0,0,W,Hh);const cx=W*.5,cy=Hh*.5,k=reduce?0:1,wob=n=>[n.x*W+Math.sin(t/1700+n.p)*5*dpr*k,n.y*Hh+Math.cos(t/1900+n.p)*5*dpr*k];
- x.lineWidth=dpr;[...L.map(n=>[n,'142,111,168']),...R.map(n=>[n,'194,54,31'])].forEach(([n,col])=>{const [a,b]=wob(n);x.strokeStyle=`rgba(${col},.18)`;x.beginPath();x.moveTo(a,b);x.lineTo(cx,cy);x.stroke()});
- if(!reduce&&Math.random()<.12)P.push({a:L[Math.floor(Math.random()*L.length)],b:R[Math.floor(Math.random()*R.length)],t0:t});
- P=P.filter(p=>t-p.t0<2400);P.forEach(p=>{const q=(t-p.t0)/2400;let X,Y,col;if(q<.5){const [a,b]=wob(p.a),u=q*2;X=a+(cx-a)*u;Y=b+(cy-b)*u;col='#8E6FA8'}else{const [a,b]=wob(p.b),u=(q-.5)*2;X=cx+(a-cx)*u;Y=cy+(b-cy)*u;col='#C2361F'}x.fillStyle=col;x.beginPath();x.arc(X,Y,2.4*dpr,0,7);x.fill()});
- L.forEach(n=>{const [a,b]=wob(n);x.fillStyle='#8E6FA8';x.beginPath();x.arc(a,b,3.4*dpr,0,7);x.fill()});
- R.forEach(n=>{const [a,b]=wob(n);x.fillStyle='#C2361F';x.fillRect(a-4*dpr,b-4*dpr,8*dpr,8*dpr)});
- const pr=reduce?0:(t/1600)%1;x.strokeStyle=`rgba(23,21,26,${.35*(1-pr)})`;x.beginPath();x.arc(cx,cy,(22+pr*26)*dpr,0,7);x.stroke();
- x.fillStyle='#17151A';x.beginPath();x.arc(cx,cy,22*dpr,0,7);x.fill();x.fillStyle='#FBFAF8';x.font=`800 ${13*dpr}px Manrope, sans-serif`;x.textAlign='center';x.textBaseline='middle';x.fillText('NW',cx,cy+dpr);
- if(vis&&!reduce)requestAnimationFrame(draw)}
-requestAnimationFrame(draw);
+// 连接图：左侧学者 → 中间的我 → 右侧机构与企业
+(function(canvas,hub){const x=canvas.getContext('2d');let W,Hh,dpr,hx,hy,hr,L=[],R=[],P=[],vis=true;
+ function lay(){dpr=Math.min(devicePixelRatio||1,2);const cr=canvas.getBoundingClientRect();W=canvas.width=cr.width*dpr;Hh=canvas.height=cr.height*dpr;
+  const r=hub.getBoundingClientRect();hx=(r.left+r.width/2-cr.left)*dpr;hy=(r.top+r.height/2-cr.top)*dpr;hr=r.width/2*dpr;
+  let s=11;const rnd=()=>{s=(s*9301+49297)%233280;return s/233280};L=[];R=[];const g=26*dpr;
+  const l0=Math.max(10*dpr,hx-W*.48),l1=hx-hr-g,r0=hx+hr+g,r1=Math.min(W-10*dpr,hx+W*.48);
+  for(let i=0;i<20;i++)L.push({x:l0+rnd()*(l1-l0),y:Hh*.08+rnd()*Hh*.84,p:rnd()*6.28});
+  for(let i=0;i<11;i++)R.push({x:r0+rnd()*(r1-r0),y:Hh*.1+rnd()*Hh*.8,p:rnd()*6.28})}
+ lay();new ResizeObserver(lay).observe(canvas);addEventListener('load',lay);
+ new IntersectionObserver(es=>{vis=es[0].isIntersecting;if(vis&&!reduce)requestAnimationFrame(d)}).observe(canvas);
+ function d(t){x.clearRect(0,0,W,Hh);const k=reduce?0:1,w=n=>[n.x+Math.sin(t/1700+n.p)*5*dpr*k,n.y+Math.cos(t/1900+n.p)*5*dpr*k];x.lineWidth=dpr;
+  L.forEach(n=>{const[a,b]=w(n);x.strokeStyle='rgba(142,111,168,.18)';x.beginPath();x.moveTo(a,b);x.lineTo(hx,hy);x.stroke()});
+  R.forEach(n=>{const[a,b]=w(n);x.strokeStyle='rgba(194,54,31,.18)';x.beginPath();x.moveTo(a,b);x.lineTo(hx,hy);x.stroke()});
+  if(!reduce&&Math.random()<.14)P.push({a:L[Math.floor(Math.random()*L.length)],b:R[Math.floor(Math.random()*R.length)],t0:t});
+  P=P.filter(p=>t-p.t0<2600);P.forEach(p=>{const q=(t-p.t0)/2600;let X,Y,c;if(q<.5){const[a,b]=w(p.a),u=q*2;X=a+(hx-a)*u;Y=b+(hy-b)*u;c='#8E6FA8'}else{const[a,b]=w(p.b),u=(q-.5)*2;X=hx+(a-hx)*u;Y=hy+(b-hy)*u;c='#C2361F'}x.fillStyle=c;x.beginPath();x.arc(X,Y,2.6*dpr,0,7);x.fill()});
+  L.forEach(n=>{const[a,b]=w(n);x.fillStyle='#8E6FA8';x.beginPath();x.arc(a,b,3.6*dpr,0,7);x.fill()});
+  R.forEach(n=>{const[a,b]=w(n);x.fillStyle='#C2361F';x.fillRect(a-4.2*dpr,b-4.2*dpr,8.4*dpr,8.4*dpr)});
+  const pr=reduce?0:(t/1800)%1;x.strokeStyle=`rgba(23,21,26,${.32*(1-pr)})`;x.lineWidth=1.4*dpr;x.beginPath();x.arc(hx,hy,hr+(4+pr*34)*dpr,0,7);x.stroke();
+  if(vis&&!reduce)requestAnimationFrame(d)}
+ requestAnimationFrame(d)})(document.getElementById('c'),document.getElementById('hub'));
 </script>
 <script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "2409a7552e1948d8a295d0345c069651"}'></script>
 </body></html>
