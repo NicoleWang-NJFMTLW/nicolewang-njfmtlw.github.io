@@ -44,9 +44,9 @@ html[data-lang=zh] .lang .zh,html[data-lang=en] .lang .en{background:var(--ink);
 .ht .tag{font:500 clamp(18px,1.6vw,21px)/1.5 "Noto Sans SC","PingFang SC",sans-serif;text-wrap:balance}
 .ht .tag em{font-style:normal;color:var(--red)}
 .ht .meta{font:400 14px/1.6 "Noto Sans SC","PingFang SC",sans-serif;color:var(--muted);margin-top:-8px}
-.hobby{list-style:none;padding:0;display:flex;flex-wrap:wrap;gap:6px 14px;margin-top:-4px}
-.hobby li{display:inline-flex;align-items:center;gap:6px;font:500 13px "Noto Sans SC","Manrope","PingFang SC",sans-serif;color:var(--sub)}
-.hobby svg{width:18px;height:18px;fill:none;stroke:var(--plum);stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.hobby{list-style:none;padding:0;display:flex;flex-wrap:wrap;gap:10px;margin-top:-4px}
+.hobby img{display:block;width:32px;height:32px;transition:transform .25s cubic-bezier(.3,1.6,.5,1)}
+.hobby li:hover img{transform:translateY(-3px) rotate(-8deg) scale(1.12)}
 .visual{position:relative;overflow:hidden;border-radius:0 30px 30px 0;margin:-34px 0}
 .visual canvas{position:absolute;inset:0;width:100%;height:100%}
 .hub{position:absolute;left:50%;top:50%;width:clamp(150px,15vw,220px);aspect-ratio:1;transform:translate(-50%,-50%);border-radius:50%;overflow:hidden;box-shadow:0 0 0 7px rgba(251,250,248,.8),0 24px 50px rgba(60,30,60,.2)}
@@ -56,7 +56,7 @@ html[data-lang=zh] .lang .zh,html[data-lang=en] .lang .en{background:var(--ink);
 .dk{all:unset;box-sizing:border-box;cursor:pointer;display:inline-flex;align-items:center;gap:8px;height:44px;padding:0 18px 0 13px;border-radius:99px;font:600 14px "Manrope","Noto Sans SC","PingFang SC",sans-serif;transition:transform .2s,box-shadow .2s}
 .dk svg{width:20px;height:20px;fill:currentColor;flex:none}
 .dk.wx{background:#07C160;color:#fff}
-.dk.mail{background:#fff;color:var(--ink);box-shadow:inset 0 0 0 1px var(--line)}.dk.mail svg{fill:#EA4335}
+.dk.mail{background:#fff;color:var(--ink);box-shadow:inset 0 0 0 1px var(--line);padding-left:9px}.dk.mail .mb{width:28px;height:28px;border-radius:9px;background:#C2361F;display:grid;place-items:center;flex:none}.dk.mail .mb svg{width:16px;height:16px;fill:none;stroke:#fff;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
 .dk.cv{background:var(--ink);color:#fff}.dk.cv svg{fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
 .dk.li{background:#0A66C2;color:#fff}
 .dk:hover,.dk[aria-expanded=true]{transform:translateY(-2px);box-shadow:0 10px 24px rgba(30,20,40,.16)}
@@ -119,7 +119,7 @@ footer{text-align:center;margin-top:22px;font:400 12px "Manrope","PingFang SC",s
       <h1>王聪聪</h1><div class="en">Nicole Wang</div>
       <p class="tag"><span data-l="zh">在<em>学者</em>与<em>产业</em>之间做连接。</span><span data-l="en">I connect <em>researchers</em> with <em>industry</em>.</span></p>
       <p class="meta"><span data-l="zh">学术生态 × 商务拓展 · 近十年 · 北京 · ENTJ</span><span data-l="en">Academic ecosystem × B2B partnerships · ~10 years · Beijing · ENTJ</span></p>
-      <ul class="hobby" aria-label="爱好 Hobbies"><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4l3.5 3.5h7L19 4v8.5a7 6.5 0 0 1-14 0z"/><path d="M9.5 12.2h.01M14.5 12.2h.01" stroke-width="2.6"/><path d="M11 15.2h2"/></svg><span data-l="zh">猫猫</span><span data-l="en">Cats</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="5" cy="16" r="3"/><circle cx="19" cy="16" r="3"/><path d="M7.5 14h5l4-4H6m1.5 4l4-4"/><path d="M13 6h2l1.5 3 2 4"/></svg><span data-l="zh">摩托车</span><span data-l="en">Motorcycles</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.5 7.5v9M17.5 7.5v9M3.5 10v4M20.5 10v4M6.5 12h11"/></svg><span data-l="zh">健身</span><span data-l="en">Gym</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 8h3l2-3h6l2 3h3a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z"/><circle cx="12" cy="13" r="3.5"/></svg><span data-l="zh">摄影</span><span data-l="en">Photography</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16 10h4a2 2 0 0 1 0 4h-4l-4 7h-3l2-7h-4l-2 2h-3l2-4-2-4h3l2 2h4l-2-7h3z"/></svg><span data-l="zh">旅行</span><span data-l="en">Travel</span></li></ul>
+      <ul class="hobby" aria-label="爱好 Hobbies"><li><img src="emoji/cat.png" alt="猫猫 Cats" title="猫猫 · Cats" width="32" height="32"></li><li><img src="emoji/moto.png" alt="摩托车 Motorcycles" title="摩托车 · Motorcycles" width="32" height="32"></li><li><img src="emoji/lift.png" alt="健身 Gym" title="健身 · Gym" width="32" height="32"></li><li><img src="emoji/camera.png" alt="摄影 Photography" title="摄影 · Photography" width="32" height="32"></li><li><img src="emoji/plane.png" alt="旅行 Travel" title="旅行 · Travel" width="32" height="32"></li></ul>
       <div class="dock" id="dock"></div>
     </div>
     <div class="visual" aria-hidden="true"><canvas id="c"></canvas><div class="hub" id="hub"><img src="avatar.jpg" alt="" width="640" height="640"></div></div>
@@ -180,7 +180,7 @@ const svg=n=>`<svg viewBox="0 0 24 24" aria-hidden="true"><path d="${ICON[n]}"/>
 const MAILS=["0815nicolewang@gmail.com","Nicole_NJFMTL@163.com"];
 document.getElementById('dock').innerHTML=`
 <button class="dk wx" data-pop="wx" aria-expanded="false">${svg('wechat')}${T('微信','WeChat')}</button>
-<button class="dk mail" data-pop="mail" aria-expanded="false">${svg('gmail')}${T('邮箱','Email')}</button>
+<button class="dk mail" data-pop="mail" aria-expanded="false"><i class="mb" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></i>${T('邮箱','Email')}</button>
 <a class="dk cv" href="https://nicolewang-njfmtlw.github.io/resume-cn/">${svg('doc')}${T('简历','Résumé (CN)')}</a>
 <a class="dk li" href="https://www.linkedin.com/in/nicole-wang-097863427">${svg('linkedin')}LinkedIn</a>
 <div class="pop p-wx" data-p="wx"><div class="ph">${T('微信扫一扫','Scan with WeChat')}</div><img src="wechat-qr.png" alt="WeChat QR" width="200" height="200"><p>${T('在手机微信里打开本页，可长按识别','On a phone, open this page in WeChat and long-press the code')}</p></div>
