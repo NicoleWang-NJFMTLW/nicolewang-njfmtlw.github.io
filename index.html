@@ -163,6 +163,17 @@ html[data-lang=en] .now .focus{font:700 clamp(24px,2.6vw,34px)/1.2 var(--mono);l
 .where{margin-top:auto;padding-top:12px;border-top:1px dashed var(--hair);font:500 13px var(--mono);color:var(--sub)}
 .where i{font-style:normal;color:var(--muted);margin-right:10px;text-transform:uppercase;letter-spacing:.1em;font-size:11px}
 
+/* AI 共创伙伴 */
+.crew{margin-top:auto;padding-top:12px;border-top:1px dashed var(--hair)}
+.crew+.where{margin-top:0}
+.crew>i{display:block;font:500 11px var(--mono);font-style:normal;color:var(--muted);text-transform:uppercase;letter-spacing:.1em;margin-bottom:10px}
+.crew ul{list-style:none;padding:0;display:flex;flex-direction:column;gap:9px}
+.crew li{display:flex;align-items:center;gap:10px;min-width:0}
+.crew img{width:24px;height:24px;flex:none;filter:grayscale(1) contrast(1.1);opacity:.75;transition:filter .25s,opacity .25s,transform .25s}
+.crew li:hover img{filter:none;opacity:1;transform:translateY(-2px) rotate(-6deg)}
+.crew b{font:700 13.5px var(--sans)}
+.crew small{font:500 12px var(--mono);color:var(--muted)}
+
 footer{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:22px 48px;font:500 12px var(--mono);color:var(--muted)}
 
 @media (max-width:1000px){
@@ -269,14 +280,14 @@ footer{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;paddin
 </section>
 
 <section class="sec" id="experience">
-  <div class="sh"><h2><span data-l="zh">从渠道与交易，到学者网络，再到产学桥梁</span><span data-l="en">From channels and transactions, to scholar networks, to bridging academia and industry</span></h2><span class="lab">NW / 03</span></div>
+  <div class="sh"><h2><span data-l="zh">交易咨询 → 学术出版 → 科研数据 → AI for Science</span><span data-l="en">Transaction advisory → Academic publishing → Research data → AI for Science</span></h2><span class="lab">NW / 03</span></div>
   <div class="rail">
     <div class="stop"><em>2015 — 2019</em><strong data-l="zh">方源房地产咨询</strong><strong data-l="en">Fangyuan Real Estate Consulting</strong><span class="role" data-l="zh">交易顾问 · 业务运营</span><span class="role" data-l="en">Transaction Consultant · Operations</span>
       <ul class="pts" data-l="zh"><li>交易金融顾问：匹配银行政策与金融产品</li><li>B/C 端交易全流程运营与风险把控</li><li>经纪人培训与渠道开拓</li><li>公证业务</li></ul>
       <ul class="pts" data-l="en"><li>Transaction financing: matching bank policies and financial products</li><li>End-to-end B2B/B2C transaction operations and risk control</li><li>Broker training and channel development</li><li>Notarization support</li></ul></div>
     <div class="stop"><em>2019 — 2024</em><strong>MDPI</strong><span class="role">Editor &amp; Team Leader</span>
-      <ul class="pts" data-l="zh"><li>期刊学科运营</li><li>全球学者合作与分层运营</li><li><a class="tlink" href="https://nicolewang-njfmtlw.github.io/resume-cn/#topics" target="_blank" rel="noopener" title="查看 32 个合作专栏">研究热点专栏策划与全周期管理</a></li><li>论文质量把控与同行评审</li><li>高校合作与校园活动</li><li>团队管理与带教机制</li></ul>
-      <ul class="pts" data-l="en"><li>Journal operations</li><li>Global researcher collaboration and tiered engagement</li><li><a class="tlink" href="https://nicolewang-njfmtlw.github.io/resume-en/#topics" target="_blank" rel="noopener" title="See all 32 special issues">Research-topic programs on emerging fields</a></li><li>Manuscript quality control and peer review</li><li>University partnerships and campus events</li><li>Team leadership and mentoring</li></ul>
+      <ul class="pts" data-l="zh"><li>期刊学科运营</li><li>全球学者合作与分层运营</li><li><a class="tlink" href="https://nicolewang-njfmtlw.github.io/resume-cn/#topics" target="_blank" rel="noopener" title="查看 32 个合作专栏">研究热点专栏策划与全周期管理</a></li><li>论文质量把控与同行评审</li><li><a class="tlink" href="https://nicolewang-njfmtlw.github.io/resume-cn/#campus" target="_blank" rel="noopener" title="查看高校合作与校园活动">高校合作与校园活动</a></li><li>团队管理与带教机制</li></ul>
+      <ul class="pts" data-l="en"><li>Journal operations</li><li>Global researcher collaboration and tiered engagement</li><li><a class="tlink" href="https://nicolewang-njfmtlw.github.io/resume-en/#topics" target="_blank" rel="noopener" title="See all 32 special issues">Research-topic programs on emerging fields</a></li><li>Manuscript quality control and peer review</li><li><a class="tlink" href="https://nicolewang-njfmtlw.github.io/resume-en/#campus" target="_blank" rel="noopener" title="See university partnerships">University partnerships and campus events</a></li><li>Team leadership and mentoring</li></ul>
       <p class="fields"><span data-l="zh">主要领域：可持续发展 · 智能交通 · 能源 · AI 与大数据</span><span data-l="en">Fields: sustainability · intelligent transportation · energy · AI &amp; big data</span></p></div>
     <div class="stop"><em>2025</em><strong data-l="zh">东壁科技数据</strong><strong data-l="en">dbdata</strong><span class="role" data-l="zh">市场部商务经理</span><span class="role" data-l="en">Business Development Manager</span>
       <ul class="pts" data-l="zh"><li>高校与科研机构拓展</li><li>需求诊断与合作方案</li><li>协同技术团队推动产品迭代</li><li>市场部客户管理流程搭建</li><li>学术会议与品牌宣传</li></ul>
@@ -304,6 +315,12 @@ footer{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;paddin
       <h3 data-l="zh">借助 AI 工具，自己搭运营系统</h3><h3 data-l="en">Building my own operating tools with AI</h3>
       <ul class="chips" data-l="zh"><li>专家与需求自动匹配</li><li>运营看板</li><li>社区展示站</li></ul>
       <ul class="chips" data-l="en"><li>Expert–project auto-matching</li><li>Ops dashboards</li><li>Community site</li></ul>
+      <div class="crew"><i data-l="zh">AI 共创伙伴</i><i data-l="en">AI collaborators</i>
+        <ul>
+          <li><img src="tools/claude.svg" alt="" width="24" height="24"><b>Claude Code</b><small data-l="zh">Anthropic 出品 · AI 编程</small><small data-l="en">by Anthropic · coding agent</small></li>
+          <li><img src="tools/gemini.svg" alt="" width="24" height="24"><b>Gemini</b><small data-l="zh">Google 出品 · AI 助手</small><small data-l="en">by Google · AI assistant</small></li>
+          <li><img src="tools/workbuddy.svg" alt="" width="24" height="24"><b>WorkBuddy</b><small data-l="zh">腾讯出品 · AI 办公</small><small data-l="en">by Tencent · AI work agent</small></li>
+        </ul></div>
       <div class="where"><i data-l="zh">经历</i><i data-l="en">Where</i>Audax Lab</div></div>
   </div>
 </section>
