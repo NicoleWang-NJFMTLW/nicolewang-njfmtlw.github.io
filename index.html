@@ -123,6 +123,16 @@ html[data-lang=en] .now .focus{font:700 clamp(24px,2.6vw,34px)/1.2 var(--mono);l
 .now li{display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:18px 48px;border-bottom:1px solid var(--hair);font:600 17px var(--sans)}
 .now li:last-child{border-bottom:0}
 .now li i{font:500 12px var(--mono);font-style:normal;color:var(--muted);letter-spacing:.04em;text-transform:uppercase}
+.now .fx li{justify-content:flex-start;align-items:center;gap:16px;font:600 clamp(17px,1.5vw,20px) var(--mono);letter-spacing:-.02em;cursor:default}
+.now .fx .fi{width:26px;height:26px;flex:none;transition:transform .4s cubic-bezier(.3,1.6,.5,1)}
+.now .fx .dc{white-space:pre;transition:transform .25s}
+.now .fx .ic-atom .fi{animation:fxspin 9s linear infinite}
+@keyframes fxspin{to{transform:rotate(360deg)}}
+.now .fx li:hover .dc{transform:translateX(6px)}
+.now .fx .ic-atom:hover .fi,.now .fx .ic-atom.go .fi{animation-duration:1.2s}
+.now .fx .ic-flask:hover .fi,.now .fx .ic-flask.go .fi{transform:rotate(-16deg) translateY(-3px)}
+.now .fx .ic-robot:hover .fi,.now .fx .ic-robot.go .fi{transform:translateY(-6px) scale(1.12)}
+.now .fx .ic-database:hover .fi,.now .fx .ic-database.go .fi{transform:scale(1.22)}
 .now .for{padding:28px 48px 6px;font:600 12px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
 
 /* 01–04 */
@@ -217,7 +227,7 @@ footer{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;paddin
 .js .stop.in{opacity:1;transform:none}
 .js .stop.in::before{transform:scale(1)}
 @media print{.js .rise,.js .bar,.js .stop,.js .stop::before{opacity:1!important;transform:none!important;transition:none!important}}
-@media (prefers-reduced-motion:reduce){.js .rise,.js .bar,.js .stop,.js .stop::before{opacity:1!important;transform:none!important;transition:none!important}.live::before,.cat .tail,.cat .head,.cat .eyes,.cat:hover .ear,.cat.hop{animation:none}html{scroll-behavior:auto}}
+@media (prefers-reduced-motion:reduce){.js .rise,.js .bar,.js .stop,.js .stop::before{opacity:1!important;transform:none!important;transition:none!important}.now .fx .fi,.live::before,.cat .tail,.cat .head,.cat .eyes,.cat:hover .ear,.cat.hop{animation:none}html{scroll-behavior:auto}}
 </style></head><body>
 <div class="sheet">
 <header class="top">
@@ -270,11 +280,11 @@ footer{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;paddin
       <span class="live">Now</span>
       <h3 class="focus" data-l="zh">产学合作</h3><h3 class="focus" data-l="en">Industry–academia collaboration</h3>
     </div>
-    <ul>
-      <li><span data-l="zh">大模型专家网络</span><span data-l="en">Expert networks for LLMs</span></li>
-      <li><span data-l="zh">AI for Science</span><span data-l="en">AI for Science</span></li>
-      <li><span data-l="zh">具身智能</span><span data-l="en">Embodied AI</span></li>
-      <li><span data-l="zh">AI 教育</span><span data-l="en">AI for Education</span></li>
+    <ul class="fx">
+      <li class="ic-atom"><svg class="fi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 12v.01"/><path d="M19.071 4.929c-1.562 -1.562 -6 .337 -9.9 4.243c-3.905 3.905 -5.804 8.337 -4.242 9.9c1.562 1.561 6 -.338 9.9 -4.244c3.905 -3.905 5.804 -8.337 4.242 -9.9"/><path d="M4.929 4.929c-1.562 1.562 .337 6 4.243 9.9c3.905 3.905 8.337 5.804 9.9 4.242c1.561 -1.562 -.338 -6 -4.244 -9.9c-3.905 -3.905 -8.337 -5.804 -9.9 -4.242"/></svg><span class="dc" data-w="AI4S">AI4S</span></li>
+      <li class="ic-flask"><svg class="fi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 3l6 0"/><path d="M10 9l4 0"/><path d="M10 3v6l-4 11a.7 .7 0 0 0 .5 1h11a.7 .7 0 0 0 .5 -1l-4 -11v-6"/></svg><span class="dc" data-w="Agentic Science">Agentic Science</span></li>
+      <li class="ic-robot"><svg class="fi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 4m0 2a2 2 0 0 1 2 -2h8a2 2 0 0 1 2 2v4a2 2 0 0 1 -2 2h-8a2 2 0 0 1 -2 -2z"/><path d="M12 2v2"/><path d="M9 12v9"/><path d="M15 12v9"/><path d="M5 16l4 -2"/><path d="M15 14l4 2"/><path d="M9 18h6"/><path d="M10 8v.01"/><path d="M14 8v.01"/></svg><span class="dc" data-w="Physical AI">Physical AI</span></li>
+      <li class="ic-database"><svg class="fi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 6m-8 0a8 3 0 1 0 16 0a8 3 0 1 0 -16 0"/><path d="M4 6v6a8 3 0 0 0 16 0v-6"/><path d="M4 12v6a8 3 0 0 0 16 0v-6"/></svg><span class="dc" data-w="AI Data">AI Data</span></li>
     </ul>
   </div>
 </section>
@@ -395,5 +405,32 @@ addEventListener('keydown',e=>{if(e.key==='Escape')closeAll()});
   R.forEach(n=>{const[a,b]=w(n);x.fillStyle='#111';x.fillRect(a-4*dpr,b-4*dpr,8*dpr,8*dpr)});
   if(vis&&!reduce)requestAnimationFrame(d)}
  requestAnimationFrame(d)})(document.getElementById('c'),document.getElementById('hub'));
+</script>
+<script>
+(function(){
+  var rows=[].slice.call(document.querySelectorAll('.now .fx li'));
+  if(!rows.length||matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+  var C='ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789#%&*';
+  function decode(li,delay){
+    var el=li.querySelector('.dc'),w=el.getAttribute('data-w');
+    setTimeout(function(){
+      li.classList.add('go');var f=0,n=18;
+      var id=setInterval(function(){
+        f++;var k=f*w.length/n,s='';
+        for(var i=0;i<w.length;i++)s+=(w[i]===' '||i<k)?w[i]:C[Math.floor(Math.random()*C.length)];
+        el.textContent=s;
+        if(f>=n){clearInterval(id);el.textContent=w;setTimeout(function(){li.classList.remove('go')},350)}
+      },45);
+    },delay);
+  }
+  function cycle(){rows.forEach(function(li,i){decode(li,i*260)})}
+  var timer=null,box=document.querySelector('.now .fx');
+  new IntersectionObserver(function(es){
+    es.forEach(function(e){
+      if(e.isIntersecting&&!timer){cycle();timer=setInterval(cycle,6000)}
+      else if(!e.isIntersecting&&timer){clearInterval(timer);timer=null}
+    });
+  },{threshold:.4}).observe(box);
+})();
 </script>
 </body></html>
