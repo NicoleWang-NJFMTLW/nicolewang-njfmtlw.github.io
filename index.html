@@ -46,9 +46,34 @@ html[data-lang=zh] .lang .zh,html[data-lang=en] .lang .en{background:var(--ink);
 .kw{display:flex;flex-wrap:wrap;gap:6px 0;font:500 12.5px var(--mono);letter-spacing:.04em;text-transform:uppercase;color:var(--sub)}
 .kw span:not(:last-child)::after{content:"·";margin:0 10px;color:var(--muted)}
 .name{display:flex;flex-direction:column;gap:4px}
-.name h1{font:800 clamp(44px,4.2vw,64px)/1 var(--sans);letter-spacing:-.01em}
-.name .en{font:600 clamp(18px,1.6vw,23px)/1.2 var(--mono);letter-spacing:-.02em}
+.name h1{font:700 clamp(32px,2.9vw,40px)/1.05 var(--sans);letter-spacing:-.01em}
+.name .en{font:600 clamp(16px,1.35vw,19px)/1.2 var(--mono);letter-spacing:-.02em}
 .bar{width:132px;height:8px;background:var(--ink)}
+.name h1{display:flex;align-items:flex-end;gap:12px}
+.pcat{width:auto;height:1.05em;fill:var(--ink);overflow:visible;cursor:pointer;flex:none;margin-bottom:.04em}
+.pcat .pe{fill:var(--paper);animation:pblink 4.2s steps(1) infinite}
+.pcat .tb{visibility:hidden}
+.pcat .ta{animation:ptA 1.6s steps(1) infinite}.pcat .tb{animation:ptB 1.6s steps(1) infinite}
+.pcat .ph{fill:var(--ink);opacity:0}
+.pcat.hop .pb{animation:phop .45s steps(3)}
+.pcat.hop .ph{animation:pheart 1s steps(4)}
+@keyframes pblink{0%,92%{opacity:1}93%,97%{opacity:0}98%{opacity:1}}
+@keyframes ptA{0%{visibility:visible}50%{visibility:hidden}}
+@keyframes ptB{0%{visibility:hidden}50%{visibility:visible}}
+@keyframes phop{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}
+@keyframes pheart{0%{opacity:1;transform:translateY(0)}100%{opacity:0;transform:translateY(-3px)}}
+.bar.wire{position:relative;width:150px;height:14px;background:none}
+.js .bar.wire{transform:none;transition:none}
+.wire::before{content:"";position:absolute;left:7px;right:7px;top:6px;height:2px;background:var(--ink);transform-origin:left;transform:scaleX(0);transition:transform .9s cubic-bezier(.2,.7,.2,1) .3s}
+.wire.in::before,html:not(.js) .wire::before{transform:scaleX(1)}
+.wire i{position:absolute;top:0;width:14px;height:14px;box-sizing:border-box}
+.wire .c{left:0;border:2px solid var(--ink);border-radius:50%;background:var(--paper);z-index:1}
+.wire .s{right:0;background:var(--ink)}
+.js .wire .c,.js .wire .s{opacity:0;transition:opacity .4s ease .3s}
+.wire.in .c,.wire.in .s{opacity:1}
+.wire .p{top:3px;left:7px;width:8px;height:8px;border-radius:50%;background:var(--ink);opacity:0}
+.wire.in .p{animation:wrun 2.8s 1.3s ease-in-out infinite}
+@keyframes wrun{0%{left:7px;opacity:0}10%{opacity:1}50%{left:calc(100% - 15px);opacity:1}60%,100%{left:calc(100% - 15px);opacity:0}}
 .self{font:500 clamp(16px,1.4vw,19px)/1.6 var(--sans);color:var(--sub);margin-top:-10px}
 .meta{color:var(--muted);font-size:14.5px}
 .hobby{list-style:none;padding:0;display:flex;gap:10px}
@@ -103,7 +128,7 @@ html[data-lang=zh] .lang .zh,html[data-lang=en] .lang .en{background:var(--ink);
 /* 通用分节 */
 .sec{border-bottom:1px solid var(--ink)}
 .sh{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap;padding:40px 48px 24px}
-.sh h2{font:900 clamp(26px,2.8vw,38px)/1.25 var(--sans);letter-spacing:-.01em;text-wrap:balance}
+.sh h2{font:700 clamp(20px,1.7vw,24px)/1.3 var(--sans);letter-spacing:-.01em;text-wrap:balance}
 html[data-lang=en] .sh h2{font-family:var(--mono);font-weight:700;letter-spacing:-.03em}
 .sh .lab{font:600 13px var(--mono);letter-spacing:.06em;text-transform:uppercase}
 .sh .lab::after{content:"";display:block;height:3px;background:var(--ink);margin-top:6px}
@@ -114,8 +139,10 @@ html[data-lang=en] .sh h2{font-family:var(--mono);font-weight:700;letter-spacing
 .live{display:inline-flex;align-items:center;gap:8px;font:600 12px var(--mono);letter-spacing:.1em;text-transform:uppercase}
 .live::before{content:"";width:9px;height:9px;border-radius:50%;background:var(--ink);animation:pulse 2s infinite}
 @keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(17,17,17,.45)}50%{box-shadow:0 0 0 7px rgba(17,17,17,0)}}
-.now .focus{font:900 clamp(30px,3.4vw,46px)/1.15 var(--sans);letter-spacing:-.01em}
-html[data-lang=en] .now .focus{font:700 clamp(24px,2.6vw,34px)/1.2 var(--mono);letter-spacing:-.03em}
+.now .focus{font:700 clamp(22px,2.1vw,30px)/1.08 var(--mono);letter-spacing:-.04em;position:relative;z-index:1}
+.now .lead{position:relative;min-height:300px;overflow:hidden}
+.now .lead .live{position:relative;z-index:1}
+.now .eco{position:absolute;inset:0;width:100%;height:100%}
 .now .lead p{color:var(--sub);font-size:clamp(17px,1.5vw,20px);line-height:1.65;max-width:30em}
 .now ul{list-style:none;padding:12px 0 0}
 .now li{display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:18px 48px;border-bottom:1px solid var(--hair);font:600 17px var(--sans)}
@@ -227,15 +254,15 @@ footer{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;paddin
 .js .stop.in{opacity:1;transform:none}
 .js .stop.in::before{transform:scale(1)}
 @media print{.js .rise,.js .bar,.js .stop,.js .stop::before{opacity:1!important;transform:none!important;transition:none!important}}
-@media (prefers-reduced-motion:reduce){.js .rise,.js .bar,.js .stop,.js .stop::before{opacity:1!important;transform:none!important;transition:none!important}.now .fx .fi,.live::before,.cat .tail,.cat .head,.cat .eyes,.cat:hover .ear,.cat.hop{animation:none}html{scroll-behavior:auto}}
+@media (prefers-reduced-motion:reduce){.js .rise,.js .bar,.js .stop,.js .stop::before{opacity:1!important;transform:none!important;transition:none!important}.pcat .pe,.pcat .ta,.pcat .tb,.pcat.hop .pb,.pcat.hop .ph,.wire.in .p,.now .fx .fi,.live::before,.cat .tail,.cat .head,.cat .eyes,.cat:hover .ear,.cat.hop{animation:none}html{scroll-behavior:auto}}
 </style></head><body>
 <div class="sheet">
 <header class="top">
   <div class="brand"><img src="avatar.jpg" alt="" width="34" height="34">Nicole Wang · 王聪聪</div>
   <nav class="nav" aria-label="页面导航 Sections">
     <a href="#now"><span data-l="zh">正在关注</span><span data-l="en">Now</span></a>
-    <a href="#experience"><span data-l="zh">经历</span><span data-l="en">Experience</span></a>
-    <a href="#skills"><span data-l="zh">能力</span><span data-l="en">Skills</span></a>
+    <a href="#experience"><span data-l="zh">履历</span><span data-l="en">Experience</span></a>
+    <a href="#skills"><span data-l="zh">专长</span><span data-l="en">Strengths</span></a>
   </nav>
   <button class="lang" id="lang" aria-label="切换语言 / Switch language"><span class="zh">中文</span><span class="en">EN</span></button>
 </header>
@@ -245,8 +272,8 @@ footer{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;paddin
   <div class="hl">
     <div class="kw rise" style="--d:0s" data-l="zh"><span>学术生态</span><span>专家网络</span><span>专家运营</span><span>合作拓展</span></div>
     <div class="kw rise" style="--d:0s" data-l="en"><span>Academic ecosystem</span><span>Expert networks</span><span>Expert operations</span><span>Partnerships</span></div>
-    <div class="name rise" style="--d:.08s"><h1>王聪聪</h1><div class="en">Nicole Wang</div></div>
-    <div class="bar" aria-hidden="true"></div>
+    <div class="name rise" style="--d:.08s"><h1><span>王聪聪</span><svg class="pcat" id="pcat" viewBox="0 -6 12 17" shape-rendering="crispEdges" aria-hidden="true"><g class="pb"><rect x="1" y="0" width="1" height="1"/><rect x="5" y="0" width="1" height="1"/><rect x="1" y="1" width="1" height="1"/><rect x="2" y="1" width="1" height="1"/><rect x="4" y="1" width="1" height="1"/><rect x="5" y="1" width="1" height="1"/><rect x="0" y="2" width="1" height="1"/><rect x="1" y="2" width="1" height="1"/><rect x="2" y="2" width="1" height="1"/><rect x="3" y="2" width="1" height="1"/><rect x="4" y="2" width="1" height="1"/><rect x="5" y="2" width="1" height="1"/><rect x="6" y="2" width="1" height="1"/><rect x="0" y="3" width="1" height="1"/><rect x="1" y="3" width="1" height="1"/><rect x="2" y="3" width="1" height="1"/><rect x="3" y="3" width="1" height="1"/><rect x="4" y="3" width="1" height="1"/><rect x="5" y="3" width="1" height="1"/><rect x="6" y="3" width="1" height="1"/><rect x="0" y="4" width="1" height="1"/><rect x="1" y="4" width="1" height="1"/><rect x="2" y="4" width="1" height="1"/><rect x="3" y="4" width="1" height="1"/><rect x="4" y="4" width="1" height="1"/><rect x="5" y="4" width="1" height="1"/><rect x="6" y="4" width="1" height="1"/><rect x="1" y="5" width="1" height="1"/><rect x="2" y="5" width="1" height="1"/><rect x="3" y="5" width="1" height="1"/><rect x="4" y="5" width="1" height="1"/><rect x="5" y="5" width="1" height="1"/><rect x="1" y="6" width="1" height="1"/><rect x="2" y="6" width="1" height="1"/><rect x="3" y="6" width="1" height="1"/><rect x="4" y="6" width="1" height="1"/><rect x="5" y="6" width="1" height="1"/><rect x="6" y="6" width="1" height="1"/><rect x="0" y="7" width="1" height="1"/><rect x="1" y="7" width="1" height="1"/><rect x="2" y="7" width="1" height="1"/><rect x="3" y="7" width="1" height="1"/><rect x="4" y="7" width="1" height="1"/><rect x="5" y="7" width="1" height="1"/><rect x="6" y="7" width="1" height="1"/><rect x="7" y="7" width="1" height="1"/><rect x="0" y="8" width="1" height="1"/><rect x="1" y="8" width="1" height="1"/><rect x="2" y="8" width="1" height="1"/><rect x="3" y="8" width="1" height="1"/><rect x="4" y="8" width="1" height="1"/><rect x="5" y="8" width="1" height="1"/><rect x="6" y="8" width="1" height="1"/><rect x="7" y="8" width="1" height="1"/><rect x="0" y="9" width="1" height="1"/><rect x="1" y="9" width="1" height="1"/><rect x="2" y="9" width="1" height="1"/><rect x="3" y="9" width="1" height="1"/><rect x="4" y="9" width="1" height="1"/><rect x="5" y="9" width="1" height="1"/><rect x="6" y="9" width="1" height="1"/><rect x="7" y="9" width="1" height="1"/><rect x="1" y="10" width="1" height="1"/><rect x="2" y="10" width="1" height="1"/><rect x="5" y="10" width="1" height="1"/><rect x="6" y="10" width="1" height="1"/><g class="ta"><rect x="8" y="9" width="1" height="1"/><rect x="9" y="8" width="1" height="1"/><rect x="9" y="7" width="1" height="1"/><rect x="10" y="6" width="1" height="1"/></g><g class="tb"><rect x="8" y="9" width="1" height="1"/><rect x="9" y="9" width="1" height="1"/><rect x="10" y="8" width="1" height="1"/><rect x="11" y="7" width="1" height="1"/></g><g class="pe"><rect x="2" y="3" width="1" height="1"/><rect x="4" y="3" width="1" height="1"/></g></g><g class="ph"><rect x="2" y="-5" width="1" height="1"/><rect x="4" y="-5" width="1" height="1"/><rect x="1" y="-4" width="5" height="1"/><rect x="2" y="-3" width="3" height="1"/><rect x="3" y="-2" width="1" height="1"/></g></svg></h1><div class="en">Nicole Wang</div></div>
+    <div class="bar wire" aria-hidden="true"><i class="c"></i><i class="s"></i><i class="p"></i></div>
         <p class="meta rise" style="--d:.58s"><span data-l="zh">近十年 · 北京</span><span data-l="en">~10 years · Beijing</span></p>
     <ul class="hobby rise" style="--d:.7s" aria-label="爱好 Hobbies"><li><img src="emoji/cat.png" alt="猫猫 Cats" title="猫猫 · Cats" width="28" height="28"></li><li><img src="emoji/moto.png" alt="摩托车 Motorcycles" title="摩托车 · Motorcycles" width="28" height="28"></li><li><img src="emoji/lift.png" alt="健身 Gym" title="健身 · Gym" width="28" height="28"></li><li><img src="emoji/camera.png" alt="摄影 Photography" title="摄影 · Photography" width="28" height="28"></li><li><img src="emoji/plane.png" alt="旅行 Travel" title="旅行 · Travel" width="28" height="28"></li><li class="mbti" title="MBTI">ENTJ</li></ul>
     <div class="dock rise" style="--d:.82s" id="dock"></div>
@@ -273,11 +300,11 @@ footer{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;paddin
 </section>
 
 <section class="sec" id="now">
-  <div class="sh"><h2><span data-l="zh">正在关注</span><span data-l="en">Currently exploring</span></h2><span class="lab">NW / 02</span></div>
   <div class="now">
     <div class="lead">
       <span class="live">Now</span>
-      <h3 class="focus" data-l="zh">产学合作</h3><h3 class="focus" data-l="en">Industry–academia collaboration</h3>
+      <canvas class="eco" aria-hidden="true"></canvas>
+      <h3 class="focus">Research<br>Ecosystems</h3>
     </div>
     <ul class="fx">
       <li class="ic-atom"><svg class="fi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 12v.01"/><path d="M19.071 4.929c-1.562 -1.562 -6 .337 -9.9 4.243c-3.905 3.905 -5.804 8.337 -4.242 9.9c1.562 1.561 6 -.338 9.9 -4.244c3.905 -3.905 5.804 -8.337 4.242 -9.9"/><path d="M4.929 4.929c-1.562 1.562 .337 6 4.243 9.9c3.905 3.905 8.337 5.804 9.9 4.242c1.561 -1.562 -.338 -6 -4.244 -9.9c-3.905 -3.905 -8.337 -5.804 -9.9 -4.242"/></svg><span class="dc" data-w="AI4S">AI4S</span></li>
@@ -289,7 +316,7 @@ footer{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;paddin
 </section>
 
 <section class="sec" id="experience">
-  <div class="sh"><h2><span data-l="zh">经历</span><span data-l="en">Experience</span></h2><span class="lab">NW / 03</span></div>
+  <div class="sh"><h2><span data-l="zh">履历</span><span data-l="en">Experience</span></h2><span class="lab">NW / 03</span></div>
   <div class="rail">
     <div class="stop"><span class="stage">01 <span data-l="zh">交易咨询</span><span data-l="en">Transaction advisory</span>&nbsp;→</span><em>2015 — 2019</em><strong data-l="zh">方源房地产咨询</strong><strong data-l="en">Fangyuan Real Estate Consulting</strong><span class="role" data-l="zh">交易顾问 · 业务运营</span><span class="role" data-l="en">Transaction Consultant · Operations</span>
       <ul class="pts" data-l="zh"><li>交易金融顾问：匹配银行政策与金融产品</li><li>B/C 端交易全流程运营与风险把控</li><li>经纪人培训与渠道开拓</li><li>公证业务</li></ul>
@@ -309,7 +336,7 @@ footer{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;paddin
 </section>
 
 <section class="sec" id="skills">
-  <div class="sh"><h2><span data-l="zh">三项能力</span><span data-l="en">What I bring</span></h2><span class="lab">NW / 04</span></div>
+  <div class="sh"><h2><span data-l="zh">专长</span><span data-l="en">Strengths</span></h2><span class="lab">NW / 04</span></div>
   <div class="abs">
     <div class="ab"><span class="n">01</span><span class="lab" data-l="zh">学术生态</span><span class="lab" data-l="en">Academic ecosystem</span>
       <h3 data-l="zh">找到对的学者，组织成长期合作</h3><h3 data-l="en">Finding the right researchers and building lasting collaborations</h3>
@@ -431,5 +458,57 @@ addEventListener('keydown',e=>{if(e.key==='Escape')closeAll()});
     });
   },{threshold:.4}).observe(box);
 })();
+</script>
+<script>
+(function(){
+  var lead=document.querySelector('.now .lead'),cv=lead&&lead.querySelector('.eco');
+  if(!cv||!cv.getContext)return;
+  var cx=cv.getContext('2d'),red=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var W,H,dpr=window.devicePixelRatio||1,N=[],P=[],mouse=null,vis=false,box={w:0,h:0};
+  function size(){
+    W=lead.clientWidth;H=lead.clientHeight;cv.width=W*dpr;cv.height=H*dpr;cx.setTransform(dpr,0,0,dpr,0,0);
+    var h=lead.querySelector('.focus').getBoundingClientRect(),l=lead.getBoundingClientRect();
+    box={w:h.right-l.left+24,h:h.bottom-l.top+18};
+  }
+  function inBox(x,y){return x<box.w&&y<box.h}
+  function seed(){
+    N=[];var n=Math.max(12,Math.min(26,Math.round(W*H/16000)));
+    for(var i=0;i<n;i++){var x,y,k=0;do{x=Math.random()*W;y=Math.random()*H;k++}while(inBox(x,y)&&k<50);
+      N.push({x:x,y:y,vx:(Math.random()-.5)*.22,vy:(Math.random()-.5)*.22,co:i%3===0});}
+  }
+  size();seed();
+  window.addEventListener('resize',function(){size();seed();if(red)draw()});
+  lead.addEventListener('mousemove',function(e){var r=lead.getBoundingClientRect();mouse={x:e.clientX-r.left,y:e.clientY-r.top}});
+  lead.addEventListener('mouseleave',function(){mouse=null});
+  function draw(){
+    cx.clearRect(0,0,W,H);
+    if(!red)N.forEach(function(p){p.x+=p.vx;p.y+=p.vy;
+      if(p.x<6||p.x>W-6)p.vx*=-1;if(p.y<6||p.y>H-6)p.vy*=-1;
+      if(inBox(p.x,p.y)){p.vy+=.03;p.vx+=.015}
+      var s=Math.hypot(p.vx,p.vy);if(s>.4){p.vx*=.4/s;p.vy*=.4/s}});
+    var L=[],R=130;
+    for(var i=0;i<N.length;i++)for(var j=i+1;j<N.length;j++){var a=N[i],b=N[j];if(a.co===b.co)continue;
+      var d=Math.hypot(a.x-b.x,a.y-b.y);if(d<R)L.push([a,b,d]);}
+    cx.lineWidth=.7;cx.strokeStyle='#BDBDBD';
+    L.forEach(function(l){cx.globalAlpha=1-l[2]/R;cx.beginPath();cx.moveTo(l[0].x,l[0].y);cx.lineTo(l[1].x,l[1].y);cx.stroke()});
+    cx.globalAlpha=1;
+    if(!red&&L.length&&Math.random()<.02&&P.length<3){var l=L[Math.floor(Math.random()*L.length)];P.push({a:l[0],b:l[1],t:0})}
+    cx.fillStyle='#111';
+    P=P.filter(function(p){p.t+=.018;cx.beginPath();cx.arc(p.a.x+(p.b.x-p.a.x)*p.t,p.a.y+(p.b.y-p.a.y)*p.t,2.6,0,7);cx.fill();return p.t<1});
+    if(mouse){cx.strokeStyle='#111';N.forEach(function(p){var d=Math.hypot(p.x-mouse.x,p.y-mouse.y);
+      if(d<150){cx.globalAlpha=(1-d/150)*.8;cx.beginPath();cx.moveTo(mouse.x,mouse.y);cx.lineTo(p.x,p.y);cx.stroke()}});cx.globalAlpha=1}
+    N.forEach(function(p){if(p.co){cx.fillStyle='#111';cx.fillRect(p.x-4,p.y-4,8,8)}
+      else{cx.strokeStyle='#6E6E6E';cx.lineWidth=1.2;cx.beginPath();cx.arc(p.x,p.y,4,0,7);cx.fillStyle='#fff';cx.fill();cx.stroke();cx.lineWidth=.7}});
+    if(vis&&!red)requestAnimationFrame(draw);
+  }
+  new IntersectionObserver(function(es){var was=vis;vis=es[0].isIntersecting;if(vis&&!was)requestAnimationFrame(draw)}).observe(lead);
+  draw();
+})();
+</script>
+<script>
+(function(){var c=document.getElementById('pcat');if(!c)return;
+function hop(){c.classList.remove('hop');void c.getBoundingClientRect();c.classList.add('hop')}
+c.addEventListener('mouseenter',hop);c.addEventListener('click',hop);
+c.addEventListener('animationend',function(e){if(e.animationName==='pheart')c.classList.remove('hop')});})();
 </script>
 </body></html>
