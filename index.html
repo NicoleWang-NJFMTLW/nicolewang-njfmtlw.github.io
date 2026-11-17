@@ -1,10 +1,10 @@
 <!doctype html>
 <html lang="zh-CN" data-lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>王聪聪 Nicole Wang</title>
-<meta name="description" content="王聪聪 Nicole Wang｜学术生态 · 专家网络 · 专家运营 · 合作拓展。连接学者与产业。">
+<meta name="description" content="王聪聪 Nicole Wang｜学术生态 · 专家网络 · 专家运营 · 合作拓展。">
 <meta name="robots" content="index, follow">
 <meta property="og:title" content="王聪聪 Nicole Wang">
-<meta property="og:description" content="Academic ecosystem · Expert networks · Expert operations · Partnerships｜I connect researchers with industry.">
+<meta property="og:description" content="Academic ecosystem · Expert networks · Expert operations · Partnerships">
 <meta property="og:image" content="https://nicolewang-njfmtlw.github.io/avatar.jpg">
 <meta property="og:url" content="https://nicolewang-njfmtlw.github.io/">
 <meta name="theme-color" content="#FFFFFF">
@@ -49,8 +49,6 @@ html[data-lang=zh] .lang .zh,html[data-lang=en] .lang .en{background:var(--ink);
 .name h1{font:800 clamp(44px,4.2vw,64px)/1 var(--sans);letter-spacing:-.01em}
 .name .en{font:600 clamp(18px,1.6vw,23px)/1.2 var(--mono);letter-spacing:-.02em}
 .bar{width:132px;height:8px;background:var(--ink)}
-.slogan{font:700 clamp(24px,2.5vw,34px)/1.3 var(--sans);letter-spacing:-.01em;text-wrap:balance}
-html[data-lang=en] .slogan{font-family:var(--mono);letter-spacing:-.03em}
 .self{font:500 clamp(16px,1.4vw,19px)/1.6 var(--sans);color:var(--sub);margin-top:-10px}
 .meta{color:var(--muted);font-size:14.5px}
 .hobby{list-style:none;padding:0;display:flex;gap:10px}
@@ -149,6 +147,8 @@ html[data-lang=en] .now .focus{font:700 clamp(24px,2.6vw,34px)/1.2 var(--mono);l
 .stop{padding:34px 28px 36px;position:relative;min-width:0}
 .stop+.stop{border-left:1px solid var(--hair)}
 .stop::before{content:"";position:absolute;top:-7px;left:28px;width:12px;height:12px;border-radius:50%;background:var(--paper);border:2px solid var(--ink)}
+.stop .stage{display:block;font:700 13px/1.45 var(--mono);letter-spacing:.02em;color:var(--ink);margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid var(--ink)}
+@media (min-width:761px){html[data-lang=en] .stop .stage{min-height:calc(2.9em + 11px)}}
 .stop.cur::before{background:var(--ink);box-shadow:0 0 0 5px rgba(17,17,17,.12)}
 .stop em{display:block;font:600 12px var(--mono);font-style:normal;color:var(--muted);margin-bottom:8px;font-variant-numeric:tabular-nums}
 .stop strong{display:block;font:700 19px var(--sans)}
@@ -247,8 +247,7 @@ footer{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;paddin
     <div class="kw rise" style="--d:0s" data-l="en"><span>Academic ecosystem</span><span>Expert networks</span><span>Expert operations</span><span>Partnerships</span></div>
     <div class="name rise" style="--d:.08s"><h1>王聪聪</h1><div class="en">Nicole Wang</div></div>
     <div class="bar" aria-hidden="true"></div>
-    <p class="slogan rise" style="--d:.45s"><span data-l="zh">连接学者与产业</span><span data-l="en">I connect researchers with industry.</span></p>
-    <p class="meta rise" style="--d:.58s"><span data-l="zh">近十年 · 北京</span><span data-l="en">~10 years · Beijing</span></p>
+        <p class="meta rise" style="--d:.58s"><span data-l="zh">近十年 · 北京</span><span data-l="en">~10 years · Beijing</span></p>
     <ul class="hobby rise" style="--d:.7s" aria-label="爱好 Hobbies"><li><img src="emoji/cat.png" alt="猫猫 Cats" title="猫猫 · Cats" width="28" height="28"></li><li><img src="emoji/moto.png" alt="摩托车 Motorcycles" title="摩托车 · Motorcycles" width="28" height="28"></li><li><img src="emoji/lift.png" alt="健身 Gym" title="健身 · Gym" width="28" height="28"></li><li><img src="emoji/camera.png" alt="摄影 Photography" title="摄影 · Photography" width="28" height="28"></li><li><img src="emoji/plane.png" alt="旅行 Travel" title="旅行 · Travel" width="28" height="28"></li><li class="mbti" title="MBTI">ENTJ</li></ul>
     <div class="dock rise" style="--d:.82s" id="dock"></div>
   </div>
@@ -290,19 +289,19 @@ footer{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;paddin
 </section>
 
 <section class="sec" id="experience">
-  <div class="sh"><h2><span data-l="zh">交易咨询 → 学术出版 → 科研数据 → AI for Science</span><span data-l="en">Transaction advisory → Academic publishing → Research data → AI for Science</span></h2><span class="lab">NW / 03</span></div>
+  <div class="sh"><h2><span data-l="zh">经历</span><span data-l="en">Experience</span></h2><span class="lab">NW / 03</span></div>
   <div class="rail">
-    <div class="stop"><em>2015 — 2019</em><strong data-l="zh">方源房地产咨询</strong><strong data-l="en">Fangyuan Real Estate Consulting</strong><span class="role" data-l="zh">交易顾问 · 业务运营</span><span class="role" data-l="en">Transaction Consultant · Operations</span>
+    <div class="stop"><span class="stage">01 <span data-l="zh">交易咨询</span><span data-l="en">Transaction advisory</span>&nbsp;→</span><em>2015 — 2019</em><strong data-l="zh">方源房地产咨询</strong><strong data-l="en">Fangyuan Real Estate Consulting</strong><span class="role" data-l="zh">交易顾问 · 业务运营</span><span class="role" data-l="en">Transaction Consultant · Operations</span>
       <ul class="pts" data-l="zh"><li>交易金融顾问：匹配银行政策与金融产品</li><li>B/C 端交易全流程运营与风险把控</li><li>经纪人培训与渠道开拓</li><li>公证业务</li></ul>
       <ul class="pts" data-l="en"><li>Transaction financing: matching bank policies and financial products</li><li>End-to-end B2B/B2C transaction operations and risk control</li><li>Broker training and channel development</li><li>Notarization support</li></ul></div>
-    <div class="stop"><em>2019 — 2024</em><strong>MDPI</strong><span class="role">Editor &amp; Team Leader</span>
+    <div class="stop"><span class="stage">02 <span data-l="zh">学术出版</span><span data-l="en">Academic publishing</span>&nbsp;→</span><em>2019 — 2024</em><strong>MDPI</strong><span class="role">Editor &amp; Team Leader</span>
       <ul class="pts" data-l="zh"><li>期刊学科运营</li><li>全球学者合作与分层运营</li><li><a class="tlink" href="https://nicolewang-njfmtlw.github.io/resume-cn/#topics" target="_blank" rel="noopener" title="查看 32 个合作专栏">研究热点专栏策划与全周期管理</a></li><li>论文质量把控与同行评审</li><li><a class="tlink" href="https://nicolewang-njfmtlw.github.io/resume-cn/#campus" target="_blank" rel="noopener" title="查看高校合作与校园活动">高校合作与校园活动</a></li><li>团队管理与带教机制</li></ul>
       <ul class="pts" data-l="en"><li>Journal operations</li><li>Global researcher collaboration and tiered engagement</li><li><a class="tlink" href="https://nicolewang-njfmtlw.github.io/resume-en/#topics" target="_blank" rel="noopener" title="See all 32 special issues">Research-topic programs on emerging fields</a></li><li>Manuscript quality control and peer review</li><li><a class="tlink" href="https://nicolewang-njfmtlw.github.io/resume-en/#campus" target="_blank" rel="noopener" title="See university partnerships">University partnerships and campus events</a></li><li>Team leadership and mentoring</li></ul>
       <p class="fields"><span data-l="zh">主要领域：可持续发展 · 智能交通 · 能源 · AI 与大数据</span><span data-l="en">Fields: sustainability · intelligent transportation · energy · AI &amp; big data</span></p></div>
-    <div class="stop"><em>2025</em><strong data-l="zh">东壁科技数据</strong><strong data-l="en">dbdata</strong><span class="role" data-l="zh">市场部商务经理</span><span class="role" data-l="en">Business Development Manager</span>
+    <div class="stop"><span class="stage">03 <span data-l="zh">科研数据</span><span data-l="en">Research data</span>&nbsp;→</span><em>2025</em><strong data-l="zh">东壁科技数据</strong><strong data-l="en">dbdata</strong><span class="role" data-l="zh">市场部商务经理</span><span class="role" data-l="en">Business Development Manager</span>
       <ul class="pts" data-l="zh"><li>高校与科研机构拓展</li><li>需求诊断与合作方案</li><li>协同技术团队推动产品迭代</li><li>市场部客户管理流程搭建</li><li>学术会议与品牌宣传</li></ul>
       <ul class="pts" data-l="en"><li>University and research-institution partnerships</li><li>Needs diagnosis and partnership proposals</li><li>Product iteration with the tech team</li><li>Client-management workflows for the marketing team</li><li>Academic conferences and brand events</li></ul></div>
-    <div class="stop"><em>2026</em><strong>Audax Lab</strong><span class="role" data-l="zh">学术生态负责人</span><span class="role" data-l="en">Head of Academic Ecosystem</span>
+    <div class="stop"><span class="stage">04 <span data-l="zh">AI for Science</span><span data-l="en">AI for Science</span></span><em>2026</em><strong>Audax Lab</strong><span class="role" data-l="zh">学术生态负责人</span><span class="role" data-l="en">Head of Academic Ecosystem</span>
       <ul class="pts" data-l="zh"><li>产学桥梁：撮合学者与企业合作</li><li>学术生态网络：从零搭建学者网络</li><li>专家运营平台搭建</li></ul>
       <ul class="pts" data-l="en"><li>Industry–academia bridge: matching researchers with companies</li><li>Academic ecosystem network built from scratch</li><li>Building the expert operations platform</li></ul>
       <p class="fields"><span data-l="zh">AI for Science 研究网络，连接全球顶尖高校与科技公司的研究者，为大模型公司及材料、电池、药物等产业企业攻克研发难题</span><span data-l="en">An AI for Science research network connecting researchers from top universities and tech companies to solve R&amp;D challenges for LLM companies and industries such as materials, batteries and drugs</span></p></div>
